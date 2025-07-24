@@ -61,7 +61,7 @@ Route::get('/servizi/{service}', function ($service) {
 Route::get('/progetti/{project}', function ($project) {
     //project = ago
     //projects = paglia
-    abort(404);
+    //abort(404);
     $projects = [
         [
             'id' => 1,
