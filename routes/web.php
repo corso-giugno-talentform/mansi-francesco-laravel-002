@@ -6,15 +6,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homepage');
 
 Route::get('/chi-sono', function () {
     return view('chisono');
-});
+})->name('about');
 
 Route::get('/contattami', function () {
     return view('contact');
-});
+})->name('contact');
 
 Route::get('/servizi', function () {
     $services = ['comunicazione', 'website', 'consulenza'];
@@ -51,12 +51,13 @@ Route::get('/servizi', function () {
             'projects' => $projects
         ]
     );
-});
+})->name('services');
+
 
 
 Route::get('/servizi/{service}', function ($service) {
     return  view('service', ['service' => $service]);
-});
+})->name('service');
 
 Route::get('/progetti/{project}', function ($project) {
     //project = ago
@@ -87,5 +88,11 @@ Route::get('/progetti/{project}', function ($project) {
 
         ],
     ];
-    return  $project;
-});
+
+    foreach ($projects as $element) {
+        if ($element['slug'] == $project) {
+            return view('project', ['project' => $element]);
+        }
+    }
+    abort(404);
+})->name('project');

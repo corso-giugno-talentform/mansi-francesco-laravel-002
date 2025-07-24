@@ -38,43 +38,19 @@
      </nav>
 
      <div class="px-4 py-5 my-5 text-center">
-         <h1 class="display-5 fw-bold text-body-emphasis">I Mie Servizi</h1>
+         <h1 class="display-5 fw-bold text-body-emphasis">{{ $project['nome'] }}</h1>
          <div class="row row-cols-1 row-cols-md-3 g-4">
-             @foreach ($services as $service)
-                 <div class="col">
-                     <div class="card">
-                         <div class="card-body">
-                             <h5 class="card-title">{{ $service }}</h5>
-                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                 to
-                                 additional content. This content is a little bit longer.</p>
 
-                             <a href="{{ route('service', ['service' => $service]) }}"
-                                 class="btn btn-primary">Dettagli</a>
-                         </div>
+             <div class="col">
+                 <div class="card">
+                     <div class="card-body">
+                         <img src="{{ $project['image'] }}" alt="">
+
+                         <p class="card-text">{{ $project['descrizione'] }}</p>
                      </div>
                  </div>
-             @endforeach
+             </div>
 
-         </div>
-     </div>
-     <div class="px-4 py-5 my-5 text-center">
-         <h1 class="display-5 fw-bold text-body-emphasis">I Mie Progetti</h1>
-         <div class="row row-cols-1 row-cols-md-3 g-4">
-             @foreach ($projects as $project)
-                 <div class="col">
-                     <div class="card">
-                         <div class="card-body">
-                             <img src="{{ $project['image'] }}" alt="">
-                             <h5 class="card-title">{{ $project['nome'] }}</h5>
-                             <p class="card-text">{{ $project['descrizione'] }}</p>
-                             <a href="{{ route('project', ['project' => $project['slug']]) }}"
-                                 class="btn btn-primary">Dettagli</a>
-                             {{-- <a href="/progetti/{{ $project['slug'] }}" class="btn btn-primary">Dettagli</a> --}}
-                         </div>
-                     </div>
-                 </div>
-             @endforeach
 
          </div>
      </div>

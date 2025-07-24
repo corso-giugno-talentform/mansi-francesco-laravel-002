@@ -21,16 +21,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Homepage</a>
+                        <a class="nav-link" href="{{ route('homepage') }}">Homepage</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/chi-sono">Chi Sono</a>
+                        <a class="nav-link" href="{{ route('about') }}">Chi Sono</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/servizi">Servizi</a>
+                        <a class="nav-link" href="{{ route('services') }}">Servizi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contattami">Contatti</a>
+                        <a class="nav-link" href="{{ route('contact') }}">Contatti</a>
                     </li>
 
                 </ul>
