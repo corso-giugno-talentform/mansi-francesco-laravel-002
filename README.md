@@ -8,3 +8,5 @@
 
 ## Esercizio
 Creare un portoflio (usando anche il template delle passate lezioni) con una navbar funzionante
+
+

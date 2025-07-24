@@ -11,3 +11,17 @@ Route::get('/', function () {
 Route::get('/chi-sono', function () {
     return view('chisono');
 });
+
+Route::get('/contattami', function () {
+    return view('contact');
+});
+
+Route::get('/servizi', function () {
+    $services = ['comunicazione', 'website', 'consulenza'];
+    return view('services', ['services' => $services]);
+});
+
+
+Route::get('/servizi/{service}', function ($service) {
+    return  view('service', ['service' => $service]);
+});

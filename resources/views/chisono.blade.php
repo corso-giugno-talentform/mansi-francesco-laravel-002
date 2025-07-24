@@ -26,7 +26,10 @@
                         <a class="nav-link" href="/chi-sono">Chi Sono</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contatti</a>
+                        <a class="nav-link" href="/servizi">Servizi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contattami">Contatti</a>
                     </li>
 
                 </ul>
