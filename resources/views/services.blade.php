@@ -56,6 +56,24 @@
 
          </div>
      </div>
+     <div class="px-4 py-5 my-5 text-center">
+         <h1 class="display-5 fw-bold text-body-emphasis">I Mie Progetti</h1>
+         <div class="row row-cols-1 row-cols-md-3 g-4">
+             @foreach ($projects as $project)
+                 <div class="col">
+                     <div class="card">
+                         <div class="card-body">
+                             <img src="{{ $project['image'] }}" alt="">
+                             <h5 class="card-title">{{ $project['nome'] }}</h5>
+                             <p class="card-text">{{ $project['descrizione'] }}</p>
+                             <a href="/progetti/{{ $project['slug'] }}" class="btn btn-primary">Dettagli</a>
+                         </div>
+                     </div>
+                 </div>
+             @endforeach
+
+         </div>
+     </div>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
          integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
      </script>
