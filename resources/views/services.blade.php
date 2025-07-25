@@ -25,7 +25,8 @@
           <div class="row row-cols-1 row-cols-md-3 g-4">
               @foreach ($projects as $project)
                   <div class="col">
-                      <x-card :project="$project" />
+
+                      <x-card :project="$project" :isDetail="false" />
                   </div>
               @endforeach
 

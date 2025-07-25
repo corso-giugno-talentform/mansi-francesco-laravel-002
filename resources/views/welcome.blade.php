@@ -1,4 +1,9 @@
 <x-main>
+
+    <x-slot name="title">
+        Homepage
+    </x-slot>
+
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
             <div class="carousel-item active">
