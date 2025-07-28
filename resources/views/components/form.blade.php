@@ -1,0 +1,26 @@
+   <div class="container px-4 py-5 my-5">
+       <div class="col-lg-6 mx-auto">
+           {{ $slot }}
+           <form class="" action="{{ route('send') }}" method="POST">
+               @csrf
+               {{ $pippo }}
+               <div class="mb-3">
+                   <label for="inputName" class="form-label">Nome</label>
+                   <input type="text" class="form-control" id="inputName" name="firstname">
+               </div>
+               <div class="mb-3">
+                   <label for="inputSurName" class="form-label">Cognome</label>
+                   <input type="text" class="form-control" id="inputSurName" name="lastname">
+               </div>
+               <div class="mb-3">
+                   <label for="inputEmail" class="form-label">Email</label>
+                   <input type="email" class="form-control" id="inputEmail" name="email">
+               </div>
+               <div class="mb-3">
+                   <label for="FormControlTextarea" class="form-label">Messaggio</label>
+                   <textarea class="form-control" id="FormControlTextarea1" rows="3" name="message"></textarea>
+               </div>
+               <button type="submit" class="btn btn-primary">Invia</button>
+           </form>
+       </div>
+   </div>

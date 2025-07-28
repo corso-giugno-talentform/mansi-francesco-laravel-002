@@ -1,6 +1,6 @@
   <x-main>
-      <div class="px-4 py-5 my-5 text-center">
-          <h1 class="display-5 fw-bold text-body-emphasis">{{ $project['nome'] }}</h1>
+      <div class="px-4 py-5 my-5 ">
+          <h1 class="display-5 text-center fw-bold text-body-emphasis">{{ $project['nome'] }}</h1>
           <div class="row row-cols-1 row-cols-md-3 g-4">
 
               <div class="col">
@@ -9,6 +9,12 @@
 
 
           </div>
-      </div>
+          <x-form>
+              <p>Sei dentro il progetto {{ $project['nome'] }}, chiedi pure.</p>
+              <x-slot name="pippo">
+                  <input type="hidden" name="project_id" value="{{ $project['id'] }}">
+              </x-slot>
 
+          </x-form>
+      </div>
   </x-main>

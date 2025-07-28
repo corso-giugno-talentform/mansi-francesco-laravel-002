@@ -11,7 +11,9 @@ Route::get('/test', function () {
 });
 Route::get('/', [PageController::class, 'homepage'])->name('homepage');
 Route::get('/chi-sono', [PageController::class, 'about'])->name('about');
-Route::get('/contattami', [PageController::class, 'contact'])->name('contact');
 Route::get('/servizi', [PageController::class, 'services'])->name('services');
 Route::get('/servizi/{service}', [PageController::class, 'service'])->name('service');
 Route::get('/progetti/{project}', [PageController::class, 'project'])->name('project');
+//Lezione dei form
+Route::get('/contattami', [PageController::class, 'contact'])->name('contact');
+Route::post('/invio-contatto', [PageController::class, 'send'])->name('send');

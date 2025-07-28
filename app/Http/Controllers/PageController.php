@@ -77,4 +77,22 @@ class PageController extends Controller
         }
         abort(404);
     }
+
+    public function send(Request $request)
+    {
+
+        foreach (self::$projects as $element) {
+            if ($element['id'] == $request->project_id) {
+                $data = [
+                    'firstname' => strtolower($request->firstname),
+                    'lastname' => $request->lastname,
+                    'email' => 'Email inserita: ' . $request->email,
+                    'message' => $request->message,
+                    'nome_prodotto' => $element['nome'],
+                    'descrizione' => $element['descrizione']
+                ];
+            }
+        }
+        dd($data);
+    }
 }
