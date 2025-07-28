@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 
 //Classe::metodo($uri, $callback);
 
+Route::get('/test', function () {
+    $ciccio = 'Francesco';
+    return view('test', ['ciccio' => $ciccio]);
+});
 Route::get('/', [PageController::class, 'homepage'])->name('homepage');
 Route::get('/chi-sono', [PageController::class, 'about'])->name('about');
 Route::get('/contattami', [PageController::class, 'contact'])->name('contact');
