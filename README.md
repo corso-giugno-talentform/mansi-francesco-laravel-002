@@ -48,6 +48,7 @@ Le rotte richieste sono:
 - Dettaglio articolo (Pagina parametrica con elementi dinamici)
 
 
-
+----
+Node: https://nodejs.org/en/download
 
 
