@@ -81,10 +81,10 @@ class PageController extends Controller
     public function send(Request $request)
     {
         $request->validate([
-            'firstname' => ['required'],
-            'lastname' => ['required'],
-            'email' => ['required'],
-            'message' => ['required'],
+            'firstname' => ['required'], //max 20 caratteri
+            'lastname' => ['required'], //max 20 caratteri
+            'email' => ['required', 'email'],
+            'message' => ['required'], //min 10 caratteri
         ]);
 
 
