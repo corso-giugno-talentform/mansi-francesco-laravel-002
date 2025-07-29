@@ -11,9 +11,13 @@
           </div>
           <x-form>
               <p>Sei dentro il progetto {{ $project['nome'] }}, chiedi pure.</p>
-              <x-slot name="pippo">
+
+              {{-- mettici tutto dentro una variabile chiamata = hidden --}}
+              {{-- $hidden = <input type="hidden" name="project_id" value="{{ $project['id'] }}"> --}}
+              <x-slot name="hidden">
                   <input type="hidden" name="project_id" value="{{ $project['id'] }}">
               </x-slot>
+
 
           </x-form>
       </div>

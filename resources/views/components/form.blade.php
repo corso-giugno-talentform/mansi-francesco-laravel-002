@@ -3,23 +3,49 @@
            {{ $slot }}
            <form class="" action="{{ route('send') }}" method="POST">
                @csrf
-               {{ $pippo }}
+               {{-- {{ isset($hidden) ? $hidden : '' }} --}}
+               {{ $hidden ?? '' }}
                <div class="mb-3">
                    <label for="inputName" class="form-label">Nome</label>
-                   <input type="text" class="form-control" id="inputName" name="firstname">
+                   <input type="text" class="form-control" id="inputName" name="firstname"
+                       value="{{ old('firstname') }}">
+                   @error('firstname')
+                       <div class="alert alert-danger mt-2" role="alert">
+                           {{ $message }}
+                       </div>
+                   @enderror
+
                </div>
                <div class="mb-3">
                    <label for="inputSurName" class="form-label">Cognome</label>
-                   <input type="text" class="form-control" id="inputSurName" name="lastname">
+                   <input type="text" class="form-control" id="inputSurName" name="lastname"
+                       value="{{ old('lastname') }}">
+                   @error('lastname')
+                       <div class="alert alert-danger mt-2" role="alert">
+                           {{ $message }}
+                       </div>
+                   @enderror
                </div>
                <div class="mb-3">
                    <label for="inputEmail" class="form-label">Email</label>
-                   <input type="email" class="form-control" id="inputEmail" name="email">
+                   <input type="email" class="form-control" id="inputEmail" name="email"
+                       value="{{ old('email') }}">
+                   @error('email')
+                       <div class="alert alert-danger mt-2" role="alert">
+                           {{ $message }}
+                       </div>
+                   @enderror
                </div>
                <div class="mb-3">
                    <label for="FormControlTextarea" class="form-label">Messaggio</label>
-                   <textarea class="form-control" id="FormControlTextarea1" rows="3" name="message"></textarea>
+                   <textarea class="form-control" id="FormControlTextarea1" rows="3" name="message">{{ old('message') }}</textarea>
+                   @error('message')
+                       <div class="alert alert-danger mt-4" role="alert">
+                           {{ $message }}
+                       </div>
+                   @enderror
                </div>
+
                <button type="submit" class="btn btn-primary">Invia</button>
            </form>
        </div>
