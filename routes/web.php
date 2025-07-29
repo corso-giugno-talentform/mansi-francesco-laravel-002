@@ -17,3 +17,4 @@ Route::get('/progetti/{project}', [PageController::class, 'project'])->name('pro
 //Lezione dei form
 Route::get('/contattami', [PageController::class, 'contact'])->name('contact');
 Route::post('/invio-contatto', [PageController::class, 'send'])->name('send');
+//ciao
