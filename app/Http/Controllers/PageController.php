@@ -111,8 +111,9 @@ class PageController extends Controller
         Mail::to($request->email)->send(new SendMail($data));
         Mail::to('admin@miosito.it')->send(new SendAdminMail($data));
 
-
-
-        dd('Emails Inviate');
+        //Step4: Ritorno un messagio di successo
+        //$request->session()->flash('status', 'Task was successful!');
+        $text = 'Grazie per averci contattato. Riceverai una email al piu presto.';
+        return redirect()->back()->with('success', $text);
     }
 }

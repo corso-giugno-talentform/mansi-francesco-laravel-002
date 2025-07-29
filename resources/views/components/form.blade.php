@@ -1,5 +1,21 @@
    <div class="container px-4 py-5 my-5">
        <div class="col-lg-6 mx-auto">
+           @if (session('success'))
+               <x-alert color="alert-success"> {{ session('success') }}</x-alert>
+           @endif
+
+           {{-- @session('success')
+               {{ session('success') }}
+           @endsession --}}
+           @if ($errors->any())
+               <div class="alert alert-danger">
+                   <ul>
+                       @foreach ($errors->all() as $error)
+                           <li>{{ $error }}</li>
+                       @endforeach
+                   </ul>
+               </div>
+           @endif
            {{ $slot }}
            <form class="" action="{{ route('send') }}" method="POST">
                @csrf
@@ -7,13 +23,9 @@
                {{ $hidden ?? '' }}
                <div class="mb-3">
                    <label for="inputName" class="form-label">Nome</label>
-                   <input type="text" class="form-control" id="inputName" name="firstname"
-                       value="{{ old('firstname') }}">
-                   @error('firstname')
-                       <div class="alert alert-danger mt-2" role="alert">
-                           {{ $message }}
-                       </div>
-                   @enderror
+                   <input type="text" class="form-control @error('firstname') is-invalid    @enderror" id="inputName"
+                       name="firstname" value="{{ old('firstname') }}">
+
 
                </div>
                <div class="mb-3">
