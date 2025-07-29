@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendAdminMail;
+use App\Mail\SendMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PageController extends Controller
 {
@@ -80,6 +83,7 @@ class PageController extends Controller
 
     public function send(Request $request)
     {
+        //Step 1: vado a validare i dati del form
         $request->validate([
             'firstname' => ['required'], //max 20 caratteri
             'lastname' => ['required'], //max 20 caratteri
@@ -87,7 +91,7 @@ class PageController extends Controller
             'message' => ['required'], //min 10 caratteri
         ]);
 
-
+        //Step2: Una volta validati, procedo con il mapping
         $data = [
             'firstname' => strtolower($request->firstname),
             'lastname' => $request->lastname,
@@ -102,7 +106,13 @@ class PageController extends Controller
                 }
             }
         }
+        //Step3: faccio qualcosa
+        //Step3: Invio email con use Illuminate\Support\Facades\Mail;
+        Mail::to($request->email)->send(new SendMail($data));
+        Mail::to('admin@miosito.it')->send(new SendAdminMail($data));
 
-        dd($data);
+
+
+        dd('Emails Inviate');
     }
 }
